@@ -1,0 +1,14 @@
+.Campaigns {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+  color: #444444;
+  margin: 0 0 0 8px;
+}

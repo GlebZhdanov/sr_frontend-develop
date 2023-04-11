@@ -1,0 +1,14 @@
+/*@import url(src/app/styles/vendor/normalize.css);*/
+/*@import url(src/app/styles/vendor/fonts/fonts.css);*/
+
+.app {
+  position: relative;
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+:root {
+  background-color: #FFFFFF;
+}
