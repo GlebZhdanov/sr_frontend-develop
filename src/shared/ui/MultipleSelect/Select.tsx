@@ -40,12 +40,12 @@ export default function MultipleSelect({ data, onChange }: MultipleSelectProps) 
     onChange(value);
   };
 
-  useEffect(() => {
-    if (isResetSelect) {
-      console.log('fdsfdsf');
-      setPersonName([]);
-    }
-  }, [isResetSelect]);
+  // useEffect(() => {
+  //   if (isResetSelect) {
+  //     console.log('fdsfdsf');
+  //     setPersonName([]);
+  //   }
+  // }, [isResetSelect]);
 
   return (
     <div>
