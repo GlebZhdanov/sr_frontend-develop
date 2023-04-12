@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { AxiosInstance } from 'axios';
 import { getCompanyDataReducer } from '../../../pages/ReportSettings/model/slices/companyDataSlice';
 import { reportReducer } from '../../../features/ReportSettingForm/model/slice/reportSlice';
-import { AxiosInstance } from 'axios';
 
 const rootReducer = combineReducers({
   getCompany: getCompanyDataReducer,

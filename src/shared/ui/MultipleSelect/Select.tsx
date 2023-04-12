@@ -6,6 +6,9 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getResetSelect } from '../../../features/ReportSettingForm/model/selectors/reportFormSelector';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -24,6 +27,7 @@ interface MultipleSelectProps {
 }
 
 export default function MultipleSelect({ data, onChange }: MultipleSelectProps) {
+  const isResetSelect = useSelector(getResetSelect);
   const [personName, setPersonName] = React.useState<string[]>([]);
   const handleChange = (event: SelectChangeEvent<typeof personName>) => {
     const {
@@ -36,10 +40,16 @@ export default function MultipleSelect({ data, onChange }: MultipleSelectProps) 
     onChange(value);
   };
 
+  useEffect(() => {
+    if (isResetSelect) {
+      console.log('fdsfdsf');
+      setPersonName([]);
+    }
+  }, [isResetSelect]);
+
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        {/* <InputLabel id="demo-multiple-checkbox-label">Tag</InputLabel> */}
         <Select
           labelId="demo-multiple-checkbox-label"
           id="demo-multiple-checkbox"

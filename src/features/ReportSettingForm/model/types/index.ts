@@ -4,4 +4,5 @@ export type ReportSchema = {
   metrics?: string[];
   error?: string;
   isLoading: boolean;
+  resetSelect?: boolean;
 }

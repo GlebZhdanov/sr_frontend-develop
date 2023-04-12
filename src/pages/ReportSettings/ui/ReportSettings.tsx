@@ -1,6 +1,6 @@
-import { ReportSettingForm } from '../../../features/ReportSettingForm/ui/ReportSettingForm/ReportSettingForm';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { ReportSettingForm } from '../../../features/ReportSettingForm/ui/ReportSettingForm/ReportSettingForm';
 import { useAppDispatch } from '../../../shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
   getUserCabinets,
@@ -13,6 +13,8 @@ import { fetchCompany } from '../model/services/fetchCompany';
 import { updateSettingForm } from '../../../features/ReportSettingForm/model/services/updateSettingForm';
 import { getIsLoading } from '../model/selectors/reportSettingSelector';
 import Loader from '../../../shared/ui/Loader/Loader';
+import { getCompanyDataActions } from '../model/slices/companyDataSlice';
+import { reportActions } from '../../../features/ReportSettingForm/model/slice/reportSlice';
 
 export const ReportSettings = () => {
   const dispatch = useAppDispatch();
@@ -28,9 +30,10 @@ export const ReportSettings = () => {
 
   const clickButton = () => {
     dispatch(updateSettingForm(userCabinets, userCampaigns, userMetrics));
+    dispatch(reportActions.resetSelect());
   };
 
-  const disabledButton = (Boolean(userCabinets && userCampaigns));
+  const disabledButton = (Boolean(userCabinets && userCampaigns && userMetrics));
 
   if (isLoading) {
     return (

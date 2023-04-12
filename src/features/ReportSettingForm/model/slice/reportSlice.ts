@@ -3,6 +3,7 @@ import { ReportSchema } from '../types';
 
 const initialState: ReportSchema = {
   isLoading: false,
+  resetSelect: false,
   error: undefined,
 };
 
@@ -25,6 +26,9 @@ export const reportSlice = createSlice({
         ...action.payload,
 
       ];
+    },
+    resetSelect: (state, action: PayloadAction<string[]>) => {
+      state.resetSelect = true;
     },
   },
 });
